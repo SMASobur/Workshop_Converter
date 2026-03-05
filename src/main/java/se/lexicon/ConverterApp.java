@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class ConverterApp {
 
     private static Scanner myScanner = new Scanner(System.in);
+
     static void main() {
 
         int choice;
@@ -40,18 +41,59 @@ public class ConverterApp {
 
     }
 
+    //Currency converter
     public static void currencyConverter(){
         System.out.println("**** Currency Converter ****");
+        System.out.println("What would you like to convert?");
+        System.out.println("1. SEK to BDT");
+        System.out.println("2. BDT to SEK");
+        System.out.println("3. GBP to EUR");
+        System.out.println("4. EUR to GBP");
+        System.out.print("Choose (1-4): ");
 
+        int choice = Integer.parseInt(myScanner.nextLine());
 
+        final double SEK_TO_BDT = 13.05;
+        final double GBP_TO_EUR = 1.16;
+
+        switch (choice){
+            case 1:
+                System.out.println("Enter SEK amount: ");
+                double sek = Double.parseDouble(myScanner.nextLine());
+                double bdt = sek * SEK_TO_BDT;
+                System.out.printf("Result: SEK %.2f = BDT %.2f%n", sek, bdt);
+                break;
+            case 2:
+                System.out.println("Enter BDT amount: ");
+                sek = Double.parseDouble(myScanner.nextLine());
+                bdt = sek / SEK_TO_BDT;
+                System.out.printf("Result: BDT %.2f = SEK %.2f%n", sek, bdt);
+                break;
+            case 3:
+                System.out.println("Enter GBP amount: ");
+                double gbp = Double.parseDouble(myScanner.nextLine());
+                double eur = gbp * GBP_TO_EUR;
+                System.out.printf("Result: GBP %.2f = EUR %.2f%n", gbp, eur);
+                break;
+            case 4:
+                System.out.println("Enter EUR amount: ");
+                gbp = Double.parseDouble(myScanner.nextLine());
+                eur = gbp / GBP_TO_EUR;
+                System.out.printf("Result: EUR %.2f = GBP %.2f%n", gbp, eur);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+        }
 
     }
 
+    //Temperature converter
     public static void temperatureConverter(){
         System.out.println("**** Temperature Converter ****");
         System.out.println("What would you like to convert?");
         System.out.println("a. Celsius to Fahrenheit");
         System.out.println("b. Fahrenheit to Celsius");
+        System.out.print("Choose (a/b): ");
 
         String subChoice = myScanner.nextLine().toLowerCase();
 
@@ -70,8 +112,47 @@ public class ConverterApp {
         }
     }
 
+    //Length converter
     public static void lengthConverter(){
-        System.out.println("Starting Length Converter....");
+        System.out.println("**** Length Converter ****");
+        System.out.println("What would you like to convert?");
+        System.out.println("Length Converter");
+        System.out.println("1. Meters to Feet");
+        System.out.println("2. Feet to Meters");
+        System.out.println("3. Kilometers to Miles");
+        System.out.println("4. Miles to Kilometers");
+        System.out.print("Choose (1-4): ");
+
+        int choice = Integer.parseInt(myScanner.nextLine());
+
+        switch (choice){
+            case 1:
+                System.out.println("Enter meters: ");
+                double meter = Double.parseDouble(myScanner.nextLine());
+                double feet = meter*3.28084;
+                System.out.printf("Result: %.2f meters = %.2f feet's%n", meter,feet);
+                break;
+            case 2:
+                System.out.println("Enter feet's: ");
+                feet = Double.parseDouble(myScanner.nextLine());
+                meter = feet/3.28084;
+                System.out.printf("Result: %.2f feet's = %.2f meters%n", meter,feet);
+                break;
+            case 3:
+                System.out.println("Enter kilometers: ");
+                double km = Double.parseDouble(myScanner.nextLine());
+                double miles = km * 0.621371;
+                System.out.printf("Result: %.2f km = %.2f miles%n", km, miles);
+                break;
+            case 4:
+                System.out.println("Enter miles: ");
+                miles = Double.parseDouble(myScanner.nextLine());
+                km = miles / 0.621371;
+                System.out.printf("Result: %.2f miles = %.2f km%n", miles, km);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+        }
     }
 
     // Press enter to continue
