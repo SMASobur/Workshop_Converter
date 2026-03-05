@@ -41,11 +41,33 @@ public class ConverterApp {
     }
 
     public static void currencyConverter(){
-        System.out.println("Starting Currency Converter....");
+        System.out.println("**** Currency Converter ****");
+
+
+
     }
 
     public static void temperatureConverter(){
-        System.out.println("Starting Temperature Converter....");
+        System.out.println("**** Temperature Converter ****");
+        System.out.println("What would you like to convert?");
+        System.out.println("a. Celsius to Fahrenheit");
+        System.out.println("b. Fahrenheit to Celsius");
+
+        String subChoice = myScanner.nextLine().toLowerCase();
+
+        if (subChoice.equals("a")){
+            System.out.print("Enter Celsius: ");
+            double celsius = Double.parseDouble(myScanner.nextLine());
+            double fahrenheit = (celsius* 9/5)+32;
+            System.out.printf("%.2f°C = %.2f°F", celsius, fahrenheit);
+        } else if (subChoice.equals("b")) {
+            System.out.println("Enter Fahrenheit: ");
+            double fahrenheit = Double.parseDouble(myScanner.nextLine());
+            double celsius = (fahrenheit - 32) * 5/9;
+            System.out.printf("%.2f°F = %.2f°C%n", fahrenheit, celsius);
+        } else {
+            System.out.println("Invalid choice!!!");
+        }
     }
 
     public static void lengthConverter(){
