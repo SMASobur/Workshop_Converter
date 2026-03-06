@@ -2,7 +2,7 @@ package se.lexicon;
 
 import java.util.Scanner;
 
-public class ConverterApp {
+public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
 
