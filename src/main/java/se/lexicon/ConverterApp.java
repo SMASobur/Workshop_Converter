@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ConverterApp {
@@ -58,33 +60,44 @@ public class ConverterApp {
 
         switch (choice){
             case 1:
-                System.out.println("Enter SEK amount: ");
+                System.out.print("Enter SEK amount: ");
                 double sek = Double.parseDouble(myScanner.nextLine());
                 double bdt = sek * SEK_TO_BDT;
                 System.out.printf("Result: SEK %.2f = BDT %.2f%n", sek, bdt);
+                convertedAt();
                 break;
             case 2:
-                System.out.println("Enter BDT amount: ");
+                System.out.print("Enter BDT amount: ");
                 sek = Double.parseDouble(myScanner.nextLine());
                 bdt = sek / SEK_TO_BDT;
                 System.out.printf("Result: BDT %.2f = SEK %.2f%n", sek, bdt);
+                convertedAt();
                 break;
             case 3:
-                System.out.println("Enter GBP amount: ");
+                System.out.print("Enter GBP amount: ");
                 double gbp = Double.parseDouble(myScanner.nextLine());
                 double eur = gbp * GBP_TO_EUR;
                 System.out.printf("Result: GBP %.2f = EUR %.2f%n", gbp, eur);
+                convertedAt();
                 break;
             case 4:
-                System.out.println("Enter EUR amount: ");
+                System.out.print("Enter EUR amount: ");
                 gbp = Double.parseDouble(myScanner.nextLine());
                 eur = gbp / GBP_TO_EUR;
                 System.out.printf("Result: EUR %.2f = GBP %.2f%n", gbp, eur);
+                convertedAt();
                 break;
             default:
                 System.out.println("Invalid choice!");
         }
 
+    }
+
+    //Converted time and date
+    public static void convertedAt(){
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        System.out.println("Converted at: "+ dateTime.format((formatter)));
     }
 
     //Temperature converter
@@ -103,7 +116,7 @@ public class ConverterApp {
             double fahrenheit = (celsius* 9/5)+32;
             System.out.printf("%.2f°C = %.2f°F", celsius, fahrenheit);
         } else if (subChoice.equals("b")) {
-            System.out.println("Enter Fahrenheit: ");
+            System.out.print("Enter Fahrenheit: ");
             double fahrenheit = Double.parseDouble(myScanner.nextLine());
             double celsius = (fahrenheit - 32) * 5/9;
             System.out.printf("%.2f°F = %.2f°C%n", fahrenheit, celsius);
@@ -127,25 +140,25 @@ public class ConverterApp {
 
         switch (choice){
             case 1:
-                System.out.println("Enter meters: ");
+                System.out.print("Enter meters: ");
                 double meter = Double.parseDouble(myScanner.nextLine());
                 double feet = meter*3.28084;
                 System.out.printf("Result: %.2f meters = %.2f feet's%n", meter,feet);
                 break;
             case 2:
-                System.out.println("Enter feet's: ");
+                System.out.print("Enter feet's: ");
                 feet = Double.parseDouble(myScanner.nextLine());
                 meter = feet/3.28084;
                 System.out.printf("Result: %.2f feet's = %.2f meters%n", meter,feet);
                 break;
             case 3:
-                System.out.println("Enter kilometers: ");
+                System.out.print("Enter kilometers: ");
                 double km = Double.parseDouble(myScanner.nextLine());
                 double miles = km * 0.621371;
                 System.out.printf("Result: %.2f km = %.2f miles%n", km, miles);
                 break;
             case 4:
-                System.out.println("Enter miles: ");
+                System.out.print("Enter miles: ");
                 miles = Double.parseDouble(myScanner.nextLine());
                 km = miles / 0.621371;
                 System.out.printf("Result: %.2f miles = %.2f km%n", miles, km);
